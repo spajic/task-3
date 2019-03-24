@@ -4,11 +4,11 @@ function initScrolling() {
 
 function checkIfNearBottomOfPage() {
   var elCheck = document.getElementById("index-container");
-  
+
   if (elCheck) {
     var publicSearchKey = '<%= ALGOLIASEARCH_PUBLIC_SEARCH_ONLY_KEY %>'
     client = algoliasearch('<%= ApplicationConfig["ALGOLIASEARCH_APPLICATION_ID"] %>', publicSearchKey);
-    
+
     initScrolling.called = true;
     if (document.getElementsByClassName("single-article").length < 2 || location.search.indexOf("q=") > -1 ) {
       document.getElementById("loading-articles").style.display = "none"
@@ -109,12 +109,12 @@ function algoliaPaginate(tag){
 
   var homeEl = document.getElementById("index-container");
   if (homeEl.dataset.feed === "base-feed") {
-    paginationArticlesIndex = client.initIndex('ordered_articles_<%= Rails.env %>');
+    paginationArticlesIndex = client.initIndex('ordered_articles_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
   } else if (homeEl.dataset.feed === "latest") {
-    paginationArticlesIndex = client.initIndex('ordered_articles_by_published_at_<%= Rails.env %>');
+    paginationArticlesIndex = client.initIndex('ordered_articles_by_published_at_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
   } else {
     searchObj["filters"] = ('published_at_int > ' + homeEl.dataset.articlesSince);
-    paginationArticlesIndex = client.initIndex('ordered_articles_by_positive_reactions_count_<%= Rails.env %>');
+    paginationArticlesIndex = client.initIndex('ordered_articles_by_positive_reactions_count_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
   }
 
   paginationArticlesIndex.search("*", searchObj)

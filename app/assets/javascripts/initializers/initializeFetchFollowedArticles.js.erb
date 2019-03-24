@@ -123,7 +123,7 @@ function algoliaFollowedArticles(){
       }
       var publicSearchKey = '<%= ALGOLIASEARCH_PUBLIC_SEARCH_ONLY_KEY %>'
       var client = algoliasearch('<%= ApplicationConfig["ALGOLIASEARCH_APPLICATION_ID"] %>', publicSearchKey);
-      var index = client.initIndex('ordered_articles_<%= Rails.env %>');
+      var index = client.initIndex('ordered_articles_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
       var searchObj = {
           hitsPerPage: 20,
           page: "0",
@@ -133,9 +133,9 @@ function algoliaFollowedArticles(){
 
       var homeEl = document.getElementById("index-container");
       if (homeEl.dataset.feed === "base-feed") {
-        articlesIndex = client.initIndex('ordered_articles_<%= Rails.env %>');
+        articlesIndex = client.initIndex('ordered_articles_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
       } else if (homeEl.dataset.feed === "latest") {
-        articlesIndex = client.initIndex('ordered_articles_by_published_at_<%= Rails.env %>');
+        articlesIndex = client.initIndex('ordered_articles_by_published_at_<%= ENV["ALGOLIASEARCH_ENV"] || Rails.env %>');
       } else {
         searchObj["filters"] = ('published_at_int > ' + homeEl.dataset.articlesSince);
         articlesIndex = client.initIndex('ordered_articles_by_positive_reactions_count_<%= Rails.env %>');
@@ -193,7 +193,7 @@ function insertTimes() {
   var elements = document.getElementsByClassName('time-ago-indicator-initial-placeholder');
   for (var i = 0; i < elements.length; i++) {
 
-    // getElementsByClassName will get updated everytime we change DOM  
+    // getElementsByClassName will get updated everytime we change DOM
     // so elements[0] will produce the next unchanged element every iteration
     var element = elements[0];
 
