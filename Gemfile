@@ -60,6 +60,7 @@ gem "kaminari", "~> 1.1"
 gem "libhoney", "~> 1.12"
 gem "liquid", "~> 4.0"
 gem "nokogiri", "~> 1.10"
+gem 'newrelic_rpm'
 gem "octokit", "~> 4.13"
 gem "omniauth", "~> 1.9"
 gem "omniauth-github", "~> 1.3"
@@ -85,6 +86,7 @@ gem "rubyzip", "~> 1.2", ">= 1.2.2"
 gem "s3_direct_upload", "~> 0.1"
 gem "sail", "~> 1.5"
 gem "sass-rails", "~> 5.0"
+gem 'scout_apm'
 gem "sdoc", "~> 1.0", group: :doc
 gem "serviceworker-rails", "~> 0.5"
 gem "share_meow_client", "~> 0.1"
