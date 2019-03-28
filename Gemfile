@@ -106,6 +106,13 @@ gem "webpush", "~> 0.3"
 gem 'newrelic_rpm'
 gem 'prometheus_exporter'
 
+gem 'rack-mini-profiler'
+
+# For call-stack profiling flamegraphs
+gem 'flamegraph'
+gem "stackprof", "~> 0.2", require: false, platforms: :ruby
+gem "memory_profiler", "~> 0.9"
+
 group :development do
   gem "better_errors", "~> 2.5"
   gem "binding_of_caller", "~> 0.8"
@@ -118,6 +125,7 @@ group :development do
   gem "guard-rspec", "~> 4.7", require: false
   gem "rb-fsevent", "~> 0.10", require: false
   gem "web-console", "~> 3.7"
+  gem 'meta_request'
 end
 
 group :development, :test do
@@ -126,7 +134,6 @@ group :development, :test do
   gem "erb_lint", "~> 0.0", require: false
   gem "faker", "~> 1.9"
   gem "fix-db-schema-conflicts", "~> 3.0"
-  gem "memory_profiler", "~> 0.9"
   gem "parallel_tests", "~> 2.27"
   gem "pry-byebug", "~> 3.7"
   gem "rspec-rails", "~> 3.8"
@@ -152,7 +159,6 @@ group :test do
   gem "shoulda-matchers", "4.0.0.rc1", require: false
   gem "simplecov", "~> 0.16", require: false
   gem "sinatra", "~> 2.0"
-  gem "stackprof", "~> 0.2", require: false, platforms: :ruby
   gem "stripe-ruby-mock", "~> 2.5", require: "stripe_mock"
   gem "test-prof", "~> 0.7"
   gem "timecop", "~> 0.9"
