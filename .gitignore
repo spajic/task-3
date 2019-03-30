@@ -16,6 +16,7 @@ vendor/bundle
 .swp
 .approvals
 .torus.json
+.env
 coverage
 /tags
 
