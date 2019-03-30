@@ -62,3 +62,6 @@ Cache singe story rendering:
      100%    532 (longest request)
 
 RPS 12.85/7.86 = 1.63
+
+FlareTag optimization
+  RPS 14.54/12.85 = 1.2
