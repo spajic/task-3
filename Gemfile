@@ -92,6 +92,7 @@ gem "sitemap_generator", "~> 6.0"
 gem "skylight", "~> 3.1"
 gem 'newrelic_rpm', '~> 6.2.0.354'
 gem 'scout_apm', '~> 2.4.24'
+gem "prometheus_exporter", '~> 0.4.5'
 gem "slack-notifier", "~> 2.3"
 gem "sprockets", "~> 3.7"
 gem "staccato", "~> 0.5"
