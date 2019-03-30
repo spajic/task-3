@@ -156,3 +156,9 @@ group :test do
   gem "webmock", "~> 3.5"
   gem "zonebie", "~> 0.6.1"
 end
+
+# benchmarking and monitoring
+gem "flamegraph"
+gem "newrelic_rpm"
+gem "rack-mini-profiler", require: false
+# benchmarking and monitoring
