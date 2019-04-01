@@ -156,3 +156,5 @@ group :test do
   gem "webmock", "~> 3.5"
   gem "zonebie", "~> 0.6.1"
 end
+
+gem 'newrelic_rpm'
