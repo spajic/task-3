@@ -115,6 +115,8 @@ group :development do
   gem "guard-rspec", "~> 4.7", require: false
   gem "rb-fsevent", "~> 0.10", require: false
   gem "web-console", "~> 3.7"
+
+  # gem 'meta_request'
 end
 
 group :development, :test do
@@ -156,3 +158,9 @@ group :test do
   gem "webmock", "~> 3.5"
   gem "zonebie", "~> 0.6.1"
 end
+
+gem 'newrelic_rpm'
+gem 'scout_apm'
+gem 'prometheus_exporter'
+# gem 'rack-mini-profiler'
+# gem 'flamegraph'
