@@ -158,3 +158,5 @@ group :test do
 end
 
 gem 'newrelic_rpm'
+gem 'scout_apm'
+gem 'prometheus_exporter'
