@@ -9,12 +9,12 @@ else
   # Restrict Access to private indices
   params = {
     restrictIndices: [
-      "searchables_#{Rails.env}",
-      "Tag_#{Rails.env}",
-      "ordered_articles_#{Rails.env}",
-      "ordered_articles_by_published_at_#{Rails.env}",
-      "ordered_articles_by_positive_reactions_count_#{Rails.env}",
-      "ordered_comments_#{Rails.env}",
+      "searchables_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
+      "Tag_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
+      "ordered_articles_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
+      "ordered_articles_by_published_at_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
+      "ordered_articles_by_positive_reactions_count_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
+      "ordered_comments_#{ENV["ALGOLIASEARCH_ENV"] || Rails.env}",
     ].join(",")
   }
   secured_algolia_key = Algolia.generate_secured_api_key(
