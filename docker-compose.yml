@@ -44,8 +44,31 @@ services:
     depends_on: [ prometheus ]
     image: grafana/grafana
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=secret
+      GF_SECURITY_ADMIN_PASSWORD: secret
     depends_on:
       - prometheus
     ports:
       - "127.0.1.1:3030:3000"
+  rails_production:
+    build:
+      dockerfile: Dockerfile.prod
+      context: .
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: production
+      NODE_ENV: production
+      RACK_ENV: production
+      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+      YARN_INTEGRITY_ENABLED: "false"
+    volumes:
+      - cache:/tmp/cache
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - "127.0.1.1:3433:3000"
+volumes:
+  cache:
+  node_modules:
