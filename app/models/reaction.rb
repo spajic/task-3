@@ -7,7 +7,7 @@ class Reaction < ApplicationRecord
   counter_culture :reactable,
     column_name: proc { |model|
       model.points.positive? ? "positive_reactions_count" : "reactions_count"
-    }
+    }, touch: true
   counter_culture :user
 
   validates :category, inclusion: { in: CATEGORIES }

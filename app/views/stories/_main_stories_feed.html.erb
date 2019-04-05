@@ -50,12 +50,9 @@
     </div>
   <% end %>
 <% else %>
-  <% @stories.each_with_index do |story, i| %>
-    <% next if story.id == @featured_story.id %>
-    <% if !user_signed_in? && i == 4 %>
-      <%= render "stories/sign_in_invitation" %>
-    <% end %>
-    <%= render "articles/single_story", story: story %>
+  <% cache @stories do %>
+    <%= render partial: "articles/single_story",
+               collection: @stories, as: :story, cached: true %>
   <% end %>
 <% end %>
 <% if @stories.size > 1 %>
