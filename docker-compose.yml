@@ -24,6 +24,51 @@ services:
     <<: *rails_base
     command: ./bin/webpack-dev-server
   db:
-    image: postgres
+    image: postgres:10-alpine
     ports:
-    - "5432:5432"
+      - "127.0.1.1:5432:5432"
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+    restart: on-failure
+  prometheus:
+    depends_on: [ dockerhost ]
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - '127.0.1.1:9090:9090'
+  grafana:
+    depends_on: [ prometheus ]
+    image: grafana/grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: secret
+    depends_on:
+      - prometheus
+    ports:
+      - "127.0.1.1:3030:3000"
+  rails_production:
+    build:
+      dockerfile: Dockerfile.prod
+      context: .
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: production
+      NODE_ENV: production
+      RACK_ENV: production
+      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+      YARN_INTEGRITY_ENABLED: "false"
+    volumes:
+      - cache:/tmp/cache
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - "127.0.1.1:3433:3000"
+volumes:
+  cache:
+  node_modules:
