@@ -113,9 +113,12 @@ group :development do
   gem "bullet", "~> 5.9"
   gem "bundler-audit", "~> 0.6"
   gem "derailed_benchmarks", "~> 1.3"
+  gem "flamegraph"
   gem "guard", "~> 2.15", require: false
   gem "guard-livereload", "~> 2.5", require: false
   gem "guard-rspec", "~> 4.7", require: false
+  gem "meta_request"
+  gem "rack-mini-profiler"
   gem "rb-fsevent", "~> 0.10", require: false
   gem "web-console", "~> 3.7"
 end
@@ -135,6 +138,7 @@ group :development, :test do
   gem "rubocop-rspec", "~> 1.31"
   gem "spring", "~> 2.0"
   gem "spring-commands-rspec", "~> 1.0"
+  gem "stackprof", "~> 0.2", require: false, platforms: :ruby
   gem "vcr", "~> 4.0"
 end
 
@@ -152,7 +156,6 @@ group :test do
   gem "shoulda-matchers", "4.0.0.rc1", require: false
   gem "simplecov", "~> 0.16", require: false
   gem "sinatra", "~> 2.0"
-  gem "stackprof", "~> 0.2", require: false, platforms: :ruby
   gem "stripe-ruby-mock", "~> 2.5", require: "stripe_mock"
   gem "test-prof", "~> 0.7"
   gem "timecop", "~> 0.9"
