@@ -31,5 +31,5 @@ test:
   <<: *defaults
   monitor: false
 
-staging:
+local_production:
   <<: *defaults
