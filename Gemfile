@@ -36,6 +36,7 @@ gem "dalli", "~> 2.7"
 gem "delayed_job_active_record", "~> 4.1"
 gem "delayed_job_web", "~> 1.4"
 gem "devise", "~> 4.6"
+gem "dotenv-rails"
 gem "draper", "~> 3.0"
 gem "dry-struct", "~> 0.6"
 gem "email_validator", "~> 2.0"
@@ -59,12 +60,14 @@ gem "jquery-rails", "~> 4.3"
 gem "kaminari", "~> 1.1"
 gem "libhoney", "~> 1.12"
 gem "liquid", "~> 4.0"
+gem "newrelic_rpm", "~> 6.2"
 gem "nokogiri", "~> 1.10"
 gem "octokit", "~> 4.13"
 gem "omniauth", "~> 1.9"
 gem "omniauth-github", "~> 1.3"
 gem "omniauth-twitter", "~> 1.4"
 gem "pg", "~> 1.1"
+gem "prometheus_exporter"
 gem "pry", "~> 0.12"
 gem "pry-rails", "~> 0.3"
 gem "puma", "~> 3.12"
@@ -85,6 +88,7 @@ gem "rubyzip", "~> 1.2", ">= 1.2.2"
 gem "s3_direct_upload", "~> 0.1"
 gem "sail", "~> 1.5"
 gem "sass-rails", "~> 5.0"
+gem "scout_apm", "~> 2.4"
 gem "sdoc", "~> 1.0", group: :doc
 gem "serviceworker-rails", "~> 0.5"
 gem "share_meow_client", "~> 0.1"
@@ -110,9 +114,12 @@ group :development do
   gem "bullet", "~> 5.9"
   gem "bundler-audit", "~> 0.6"
   gem "derailed_benchmarks", "~> 1.3"
+  gem "flamegraph"
   gem "guard", "~> 2.15", require: false
   gem "guard-livereload", "~> 2.5", require: false
   gem "guard-rspec", "~> 4.7", require: false
+  gem "meta_request"
+  gem "rack-mini-profiler"
   gem "rb-fsevent", "~> 0.10", require: false
   gem "web-console", "~> 3.7"
 end
@@ -132,6 +139,7 @@ group :development, :test do
   gem "rubocop-rspec", "~> 1.31"
   gem "spring", "~> 2.0"
   gem "spring-commands-rspec", "~> 1.0"
+  gem "stackprof", "~> 0.2", require: false, platforms: :ruby
   gem "vcr", "~> 4.0"
 end
 
@@ -149,7 +157,6 @@ group :test do
   gem "shoulda-matchers", "4.0.0.rc1", require: false
   gem "simplecov", "~> 0.16", require: false
   gem "sinatra", "~> 2.0"
-  gem "stackprof", "~> 0.2", require: false, platforms: :ruby
   gem "stripe-ruby-mock", "~> 2.5", require: "stripe_mock"
   gem "test-prof", "~> 0.7"
   gem "timecop", "~> 0.9"

@@ -83,7 +83,7 @@ module ApplicationHelper
   end
 
   def cloudinary(url, width = nil, _quality = 80, _format = "jpg")
-    return url if Rails.env.development? && (url.blank? || url.exclude?("http"))
+    return url if use_local_url? && (url.blank? || url.exclude?("http"))
 
     service_path = "https://res.cloudinary.com/practicaldev/image/fetch"
 
@@ -101,7 +101,7 @@ module ApplicationHelper
   def cloud_cover_url(url)
     return if url.blank?
     return asset_path("triple-unicorn") if Rails.env.test?
-    return url if Rails.env.development?
+    return url if use_local_url?
 
     width = 1000
     height = 420
@@ -116,6 +116,10 @@ module ApplicationHelper
       flags: "progressive",
       fetch_format: "auto",
       sign_url: true)
+  end
+
+  def use_local_url?
+    %w[development local_production].include?(Rails.env)
   end
 
   def cloud_social_image(article)

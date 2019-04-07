@@ -1,16 +1,28 @@
 #!/usr/bin/env ruby
 require "pathname"
 require "fileutils"
+require "dotenv"
 include FileUtils
 
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path("..", __dir__)
+
+# load environment variables before start application
+Dotenv.overload("./.env")
 
 def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")
 end
 
 chdir APP_ROOT do
-  puts "== STARTING UP =="
-  system! "foreman start -f Procfile.dev"
+  env = ENV.fetch("RAILS_ENV", "development")
+
+  puts "== STARTING UP #{env} =="
+
+  if env == "local_production"
+    system! "bundle exec rake assets:precompile"
+    system! "foreman start -f Procfile.lp"
+  else
+    system! "foreman start -f Procfile.dev"
+  end
 end
