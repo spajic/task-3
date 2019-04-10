@@ -7,7 +7,6 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = yarn_integrity_enabled?
 
   # Settings specified here will take precedence over those in config/application.rb.
-  config.force_ssl = true
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
