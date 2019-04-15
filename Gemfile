@@ -105,6 +105,9 @@ gem "webpush", "~> 0.3"
 # MONITORING TOOLS
 gem 'newrelic_rpm'
 gem 'skylight'
+gem "scout_apm", "~> 2.4"
+## BUILD MONITORING YOURSELF
+gem 'prometheus_exporter'
 
 group :development do
   gem "better_errors", "~> 2.5"
