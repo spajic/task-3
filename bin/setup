@@ -37,6 +37,9 @@ chdir APP_ROOT do
   puts "\n== Removing old logs and tempfiles =="
   system! "bin/rails log:clear tmp:clear"
 
+  puts "\n== Generate local ssl =="
+  system! "openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout .ssl/localhost.key -out .ssl/localhost.crt -subj \"/C=RU/ST=Moscow/L=Moscow/O=Dev.to/OU=IT\""
+
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
 end
