@@ -1,0 +1,3 @@
+http://localhost:3000/
+http://localhost:3000/latest
+http://localhost:3000/stanislove

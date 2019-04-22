@@ -93,6 +93,8 @@ Rails.application.configure do
   logger.level = config.log_level
   config.logger = ActiveSupport::TaggedLogging.new(logger)
 
+  config.middleware.use StackProf::Middleware, enabled: true, mode: :cpu, interval: 1000, save_every: 5
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.console = true
