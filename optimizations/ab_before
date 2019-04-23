@@ -1,4 +1,4 @@
-# ab -n 10 -c 1 127.0.0.1:3000/
+# ab -n 10 -c 1 127.0.0.1:3001/
 Concurrency 1
 Requests 10
 
@@ -38,7 +38,7 @@ Percentage of the requests served within a certain time (ms)
   99%    801
  100%    801 (longest request)
 
-# ab -n 10 -c 5 127.0.0.1:3000/
+# ab -n 10 -c 5 127.0.0.1:3001/
 Concurrency 5
 Requests 10
 
