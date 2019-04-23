@@ -89,7 +89,6 @@ gem "sdoc", "~> 1.0", group: :doc
 gem "serviceworker-rails", "~> 0.5"
 gem "share_meow_client", "~> 0.1"
 gem "sitemap_generator", "~> 6.0"
-gem "skylight", "~> 3.1"
 gem "slack-notifier", "~> 2.3"
 gem "sprockets", "~> 3.7"
 gem "staccato", "~> 0.5"
@@ -103,6 +102,13 @@ gem "validate_url", "~> 1.0"
 gem "webpacker", "~> 3.5"
 gem "webpush", "~> 0.3"
 
+# MONITORING TOOLS
+gem 'newrelic_rpm'
+gem 'skylight'
+gem "scout_apm", "~> 2.4"
+## BUILD MONITORING YOURSELF
+gem 'prometheus_exporter'
+
 group :development do
   gem "better_errors", "~> 2.5"
   gem "binding_of_caller", "~> 0.8"
@@ -115,6 +121,9 @@ group :development do
   gem "guard-rspec", "~> 4.7", require: false
   gem "rb-fsevent", "~> 0.10", require: false
   gem "web-console", "~> 3.7"
+
+  # for rails panel
+  gem 'meta_request'
 end
 
 group :development, :test do

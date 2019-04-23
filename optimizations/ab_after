@@ -1,0 +1,79 @@
+# ab -n 10 -c 1 127.0.0.1:3001/
+Concurrency 1
+Requests 10
+
+Server Software:
+Server Hostname:        127.0.0.1
+Server Port:            3001
+
+Document Path:          /
+Document Length:        176270 bytes
+
+Concurrency Level:      1
+Time taken for tests:   5.672 seconds
+Complete requests:      10
+Failed requests:        0
+Total transferred:      1768430 bytes
+HTML transferred:       1762700 bytes
+Requests per second:    1.76 [#/sec] (mean)
+Time per request:       567.175 [ms] (mean)
+Time per request:       567.175 [ms] (mean, across all concurrent requests)
+Transfer rate:          304.49 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   434  567  95.2    562     717
+Waiting:      434  567  95.2    562     717
+Total:        435  567  95.2    562     717
+
+Percentage of the requests served within a certain time (ms)
+  50%    562
+  66%    624
+  75%    629
+  80%    681
+  90%    717
+  95%    717
+  98%    717
+  99%    717
+ 100%    717 (longest request)
+
+# ab -n 10 -c 5 127.0.0.1:3001/
+Concurrency 5
+Requests 10
+
+Server Software:
+Server Hostname:        127.0.0.1
+Server Port:            3001
+
+Document Path:          /
+Document Length:        176270 bytes
+
+Concurrency Level:      5
+Time taken for tests:   3.300 seconds
+Complete requests:      10
+Failed requests:        0
+Total transferred:      1768430 bytes
+HTML transferred:       1762700 bytes
+Requests per second:    3.03 [#/sec] (mean)
+Time per request:       1649.773 [ms] (mean)
+Time per request:       329.954 [ms] (mean, across all concurrent requests)
+Transfer rate:          523.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   636 1177 391.6   1037    1925
+Waiting:      636 1176 390.7   1037    1924
+Total:        636 1177 391.5   1038    1925
+
+Percentage of the requests served within a certain time (ms)
+  50%   1038
+  66%   1053
+  75%   1491
+  80%   1674
+  90%   1925
+  95%   1925
+  98%   1925
+  99%   1925
+ 100%   1925 (longest request)
