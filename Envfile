@@ -157,6 +157,7 @@ variable :SMARTY_STREETS_WEB_KEY, :String, default: "Optional"
 
 # Monitoring
 variable :SKYLIGHT_AUTHENTICATION, :String
+variable :NEWRELIC_AUTHENTICATION, :String
 
 group :production do
   variable :SECRET_KEY_BASE, :String

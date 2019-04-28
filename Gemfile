@@ -89,7 +89,6 @@ gem "sdoc", "~> 1.0", group: :doc
 gem "serviceworker-rails", "~> 0.5"
 gem "share_meow_client", "~> 0.1"
 gem "sitemap_generator", "~> 6.0"
-gem "skylight", "~> 3.1"
 gem "slack-notifier", "~> 2.3"
 gem "sprockets", "~> 3.7"
 gem "staccato", "~> 0.5"
@@ -104,6 +103,10 @@ gem "webpacker", "~> 3.5"
 gem "webpush", "~> 0.3"
 
 gem 'dotenv-rails'
+
+# Monitoring
+gem "skylight", "~> 3.1"
+gem 'newrelic_rpm'
 
 group :development do
   gem "better_errors", "~> 2.5"

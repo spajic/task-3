@@ -58,6 +58,3 @@ package-lock.json
 _docker-storage/
 
 .env
-
-#monitoring
-skylight.yml
