@@ -1,7 +1,15 @@
 version: '3.2'
 services:
+  dockerhost:
+    image: qoomon/docker-host
+    cap_add: ['NET_ADMIN', 'NET_RAW']
+    restart: on-failure
   prometheus:
     image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
     links:

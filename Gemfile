@@ -108,6 +108,7 @@ gem 'dotenv-rails'
 gem "skylight", "~> 3.1"
 gem 'newrelic_rpm'
 gem 'scout_apm'
+gem 'prometheus_exporter'
 
 group :development do
   gem "better_errors", "~> 2.5"
