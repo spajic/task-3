@@ -58,3 +58,4 @@ package-lock.json
 _docker-storage/
 
 .env
+grafana*
