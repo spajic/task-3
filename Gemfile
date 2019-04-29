@@ -107,6 +107,7 @@ gem 'dotenv-rails'
 # Monitoring
 gem "skylight", "~> 3.1"
 gem 'newrelic_rpm'
+gem 'scout_apm'
 
 group :development do
   gem "better_errors", "~> 2.5"
