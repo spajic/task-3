@@ -39,4 +39,7 @@ chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
+
+  puts "\n== Generating local certificates =="
+  system! "openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout ./config/certs/localhost.key -out ./config/certs/localhost.crt"
 end

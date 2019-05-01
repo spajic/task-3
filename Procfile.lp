@@ -1,3 +1,3 @@
-web: bin/rails s -p 3000 -e local_production
+web: bin/rails s -e local_production -b 'ssl://127.0.0.1:3000?key=./config/certs/localhost.key&cert=./config/certs/localhost.crt'
 job: bin/rake jobs:work
 prometheus_exporter: bundle exec prometheus_exporter
