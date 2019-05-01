@@ -165,3 +165,4 @@ variable :SEND_LOGS_TO_TIMBER, :Boolean, default: "0"
 variable :APP_PROTOCOL, :String, default: "http://"
 variable :APP_DOMAIN, :String, default: "localhost:3000"
 variable :SECRET_KEY_BASE, :String
+variable :RAILS_SERVE_STATIC_FILES, :String
