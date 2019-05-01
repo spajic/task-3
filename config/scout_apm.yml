@@ -11,7 +11,7 @@ common: &defaults
   # - Valid Options: debug, info, warn, error
   # log_level: debug
 
-  # name: Application name in APM Web UI
+  name: Devto
   # - Default: the application names comes from the Rails or Sinatra class name
   # name:
 
