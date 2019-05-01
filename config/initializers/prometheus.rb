@@ -1,5 +1,5 @@
 # in config/initializers/prometheus.rb
-if Rails.env != "test"
+if !Rails.env.test? && !Rails.env.development?
   require "prometheus_exporter/middleware"
   require "prometheus_exporter/instrumentation"
 
