@@ -1,0 +1,3 @@
+web: RAILS_ENV=localproduction bundle exec rails assets:clean && RAILS_ENV=localproduction bundle exec rails assets:precompile && RAILS_ENV=localproduction bundle exec rails s -p 3000
+job: bin/rake jobs:work
+prometheus: bundle exec prometheus_exporter
