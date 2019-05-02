@@ -16,9 +16,8 @@ on_worker_boot do
   # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
   ActiveRecord::Base.establish_connection
 end
-
-# puma.rb config
-after_worker_boot do
-  require "prometheus_exporter/instrumentation"
-  PrometheusExporter::Instrumentation::Puma.start
-end
+#
+# after_worker_boot do
+#   require "prometheus_exporter/instrumentation"
+#   PrometheusExporter::Instrumentation::Puma.start
+# end
