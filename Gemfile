@@ -106,7 +106,7 @@ gem "dotenv-rails"
 
 # Monitoring
 gem "newrelic_rpm"
-gem "prometheus_exporter"
+# gem "prometheus_exporter"
 gem "scout_apm"
 gem "skylight", "~> 3.1"
 
