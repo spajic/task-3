@@ -26,20 +26,6 @@
 
 ignore([%r{^bin/*}, %r{^config/*}, %r{^db/*}, %r{^lib/*}, %r{^log/*}, %r{^public/*}, %r{^tmp/*}, %r{^node_modules/*}])
 
-rspec_options = {
-  results_file: File.expand_path("tmp/guard_rspec_results.txt"),
-  #############################
-  # BECAUSE spring doesn't seem to work well with simplecov, choose
-  # between the following two.
-  # slow but good coverage
-  # cmd: "bin/rspec -p",
-  # fast but no coverage
-  cmd: "bin/spring rspec -p",
-  #############################
-  failed_mode: :focus,
-  bundler_env: :clean_env
-}
-
 guard :rspec, rspec_options do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)

@@ -155,7 +155,14 @@ variable :TRENDING_TAGS, :String, default: "git,beginners"
 variable :FACEBOOK_PIXEL_ID, :String, default: "Optional"
 variable :SMARTY_STREETS_WEB_KEY, :String, default: "Optional"
 
+# Monitoring
+variable :SKYLIGHT_AUTHENTICATION, :String
+variable :NEWRELIC_AUTHENTICATION, :String
+variable :SCOUT_AUTHENTICATION, :String
 
-group :production do
-  variable :SECRET_KEY_BASE, :String
-end
+#local_production_configs
+variable :SEND_LOGS_TO_TIMBER, :Boolean, default: "0"
+variable :APP_PROTOCOL, :String, default: "http://"
+variable :APP_DOMAIN, :String, default: "localhost:3000"
+variable :SECRET_KEY_BASE, :String
+variable :RAILS_SERVE_STATIC_FILES, :String

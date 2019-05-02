@@ -56,3 +56,8 @@ package-lock.json
 
 # Development Docker storage location
 _docker-storage/
+
+.env
+grafana*
+localhost.crt
+localhost.key
