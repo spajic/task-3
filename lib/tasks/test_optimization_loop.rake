@@ -21,6 +21,6 @@ namespace :test_optimization_loop do
       samples: samples_executed,
     )
 
-    puts "Metric is send to InfluxDB #{metric.inspect}"
+    puts "Metric is send to InfluxDB\n\n#{metric.inspect}"
   end
 end
