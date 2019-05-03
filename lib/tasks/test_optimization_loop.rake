@@ -4,14 +4,19 @@ namespace :test_optimization_loop do
     puts "Running rspec via #{cmd}"
     command = TTY::Command.new(printer: :quiet, color: true)
 
+    def parse_samples(output)
+      Integer(output.scan(/\d+ examples/).last.split(' ')[0])
+    end
+
     start = Time.now
     begin
       res = command.run(cmd)
 
       # Parse really executed count of examples
       # Take last item (it contains the sum of the parralel running)
-      samples_executed = Integer(res.out.scan(/\d+ examples/).last.split(' ')[0])
-    rescue TTY::Command::ExitError
+      samples_executed = parse_samples(res.out)
+    rescue TTY::Command::ExitError => e
+      samples_executed = parse_samples(e.message)
       puts 'TEST FAILED SAFELY'
     end
     finish = Time.now
