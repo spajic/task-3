@@ -1,6 +1,6 @@
 namespace :test_optimization_loop do
   task run: :environment do
-    cmd = "bin/rspec"
+    cmd = "rake parallel:spec[3]"
     puts "Running rspec via #{cmd}"
     command = TTY::Command.new(printer: :quiet, color: true)
 
@@ -9,7 +9,8 @@ namespace :test_optimization_loop do
       res = command.run(cmd)
 
       # Parse really executed count of examples
-      samples_executed = Integer(res.out.slice(/\d+ examples/).split(' ')[0])
+      # Take last item (it contains the sum of the parralel running)
+      samples_executed = Integer(res.out.scan(/\d+ examples/).last.split(' ')[0])
     rescue TTY::Command::ExitError
       puts 'TEST FAILED SAFELY'
     end
