@@ -12,6 +12,13 @@ group :production do
   gem "nakayoshi_fork"
 end
 
+group :production, :development do
+  gem "airbrake", "~> 8.1"
+  gem "honeycomb-rails"
+  gem "scout_apm"
+  gem "skylight", "~> 3.1"
+end
+
 gem "actionpack-action_caching", "~> 1.2"
 gem "active_record_union", "~> 1.3"
 gem "acts-as-taggable-on", "~> 5.0"
@@ -19,13 +26,13 @@ gem "acts_as_follower", github: "thepracticaldev/acts_as_follower", branch: "mas
 gem "addressable", "~> 2.5", ">= 2.5.2"
 gem "administrate", "~> 0.11"
 gem "ahoy_email", "~> 0.5"
-gem "airbrake", "~> 8.1"
 gem "algoliasearch-rails", "~> 1.21"
 gem "algorithmia", "~> 1.0"
 gem "ancestry", "~> 3.0"
 gem "autoprefixer-rails", "~> 9.4"
 gem "aws-sdk-lambda", "~> 1.16" # Just Lambda. For more, install aws-sdk gem
 gem "bourbon", "~> 5.1"
+gem 'bootsnap', require: false
 gem "buffer", "~> 0.1"
 gem "carrierwave", "~> 1.3"
 gem "carrierwave-bombshelter", "~> 0.2"
@@ -50,7 +57,6 @@ gem "front_matter_parser", "~> 0.2"
 gem "gemoji", "~> 3.0.0"
 gem "gibbon", "~> 2.2"
 gem "google-api-client", "~> 0.27"
-gem "honeycomb-rails"
 gem "html_truncator", "~> 0.4"
 gem "httparty", "~> 0.16"
 gem "inline_svg", "~> 1.3"
@@ -89,7 +95,6 @@ gem "sdoc", "~> 1.0", group: :doc
 gem "serviceworker-rails", "~> 0.5"
 gem "share_meow_client", "~> 0.1"
 gem "sitemap_generator", "~> 6.0"
-gem "skylight", "~> 3.1"
 gem "slack-notifier", "~> 2.3"
 gem "sprockets", "~> 3.7"
 gem "staccato", "~> 0.5"
@@ -123,6 +128,7 @@ group :development, :test do
   gem "erb_lint", "~> 0.0", require: false
   gem "faker", "~> 1.9"
   gem "fix-db-schema-conflicts", "~> 3.0"
+  gem 'influxer'
   gem "memory_profiler", "~> 0.9"
   gem "parallel_tests", "~> 2.27"
   gem "pry-byebug", "~> 3.7"
@@ -132,6 +138,7 @@ group :development, :test do
   gem "rubocop-rspec", "~> 1.31"
   gem "spring", "~> 2.0"
   gem "spring-commands-rspec", "~> 1.0"
+  gem 'tty-command'
   gem "vcr", "~> 4.0"
 end
 

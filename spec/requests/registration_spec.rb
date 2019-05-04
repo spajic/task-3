@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Registrations", type: :request do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   describe "GET /enter" do
     context "when not logged in" do

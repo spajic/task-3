@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "FollowedArticles", type: :request do
   describe "GET followed articles index" do
-    let(:user) { create(:user) }
+    let_it_be(:user) { create(:user) }
 
     before do
       login_as user

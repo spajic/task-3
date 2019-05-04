@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "RssFeed", type: :request do
-  let(:user) { FactoryBot.create(:user) }
-  let(:organization) { FactoryBot.create(:organization) }
-  let(:article) { FactoryBot.create(:article, user_id: user.id, featured: true) }
+  let_it_be(:user) { FactoryBot.create(:user) }
+  let_it_be(:organization) { FactoryBot.create(:organization) }
+  let_it_be(:article) { FactoryBot.create(:article, user_id: user.id, featured: true) }
 
   describe "GET query page" do
     it "renders feed" do

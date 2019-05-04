@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "PageViews", type: :request do
-  let(:user) { create(:user, :trusted) }
-  let(:article) { create(:article) }
+  let_it_be(:user) { create(:user, :trusted) }
+  let_it_be(:article) { create(:article) }
 
   describe "POST /page_views" do
     context "when user signed in" do

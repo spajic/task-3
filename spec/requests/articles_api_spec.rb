@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "ArticlesApi", type: :request do
-  let(:user1) { create(:user) }
-  let(:user2) { create(:user) }
+  let_it_be(:user1) { create(:user) }
+  let_it_be(:user2) { create(:user) }
 
   describe "GET /api/articles" do
     it "returns json response" do

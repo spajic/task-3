@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe GeneratedImage do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user_id: user.id) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
 
   it "returns the social image url if there is a social image" do
     article.social_image = Faker::Avatar.image

@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Reactions", type: :request do
-  let(:user)    { create(:user) }
-  let(:article) { create(:article, user_id: user.id) }
-  let(:comment) { create(:comment, commentable_id: article.id) }
+  let_it_be(:user)    { create(:user) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
+  let_it_be(:comment) { create(:comment, commentable_id: article.id) }
 
   describe "GET /reactions?article_id=:article_id" do
     context "when signed in" do

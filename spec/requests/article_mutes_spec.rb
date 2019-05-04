@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "ArticleMutes", type: :request do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   before { sign_in user }
 

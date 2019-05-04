@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Delayed Job web interface", type: :request do
-  let(:user)          { create(:user) }
-  let(:super_admin)   { create(:user, :super_admin) }
-  let(:article)       { create(:article, user_id: user.id) }
+  let_it_be(:user)          { create(:user) }
+  let_it_be(:super_admin)   { create(:user, :super_admin) }
+  let_it_be(:article)       { create(:article, user_id: user.id) }
 
   describe "GET /delayed_job" do
     context "when not logged in" do

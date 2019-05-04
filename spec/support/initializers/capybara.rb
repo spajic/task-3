@@ -9,11 +9,27 @@ Capybara.register_driver :chrome do |app|
 end
 
 Capybara.register_driver :headless_chrome do |app|
-  Capybara::Selenium::Driver.new app,
+  Capybara::Selenium::Driver.new(
+    app,
     browser: :chrome,
     desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w[headless disable-gpu no-sandbox window-size=1400,2000] },
-    )
+      chromeOptions: {
+        args: %w[
+          --incognito
+          --headless
+          --disable-gpu
+          --no-sandbox
+          --window-size=1400,2000
+        ]
+      },
+    ),
+    # prefs: {
+    #   'credentials_enable_service' => false,
+    #   'profile.password_manager_enabled' => false
+    # }
+  ).tap do |driver|
+    # binding.pry
+  end
 end
 
 Capybara.javascript_driver = :headless_chrome

@@ -36,9 +36,9 @@ RSpec.describe "Editor", type: :request do
   end
 
   describe "POST /articles/preview" do
-    let(:user) { create(:user) }
-    let(:article) { create(:article, user: user) }
-    let(:headers) { { "Content-Type": "application/json", Accept: "application/json" } }
+    let_it_be(:user) { create(:user) }
+    let_it_be(:article) { create(:article, user: user) }
+    let_it_be(:headers) { { "Content-Type": "application/json", Accept: "application/json" } }
 
     context "when not logged-in" do
       it "redirects to /enter" do

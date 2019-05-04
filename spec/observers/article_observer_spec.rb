@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe ArticleObserver, type: :observer do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   before do
     allow(SlackBot).to receive(:ping).and_return(true)

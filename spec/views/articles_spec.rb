@@ -1,9 +1,9 @@
 require "rails_helper"
 
 describe "articles/show", type: :view do
-  let(:user1) { create(:user) }
-  let(:article1) { create(:article, user_id: user1.id, show_comments: true) }
-  let(:helper) { Class.new { extend CommentsHelper } }
+  let_it_be(:user1) { create(:user) }
+  let_it_be(:article1) { create(:article, user_id: user1.id, show_comments: true) }
+  let_it_be(:helper) { Class.new { extend CommentsHelper } }
 
   before do
     assign(:user, user1)

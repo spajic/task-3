@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe RateLimitChecker do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user_id: user.id) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
 
   it ".limit_by_situation returns false for invalid case" do
     expect(described_class.new(user).limit_by_situation("random-nothing")).to eq(false)

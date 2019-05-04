@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "ArticlesCreate", type: :request do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   before do
     sign_in user

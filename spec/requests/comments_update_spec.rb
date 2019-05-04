@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "CommentsUpdate", type: :request do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user_id: user.id) }
-  let(:comment) { create(:comment, user_id: user.id, commentable_id: article.id) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
+  let_it_be(:comment) { create(:comment, user_id: user.id, commentable_id: article.id) }
 
   before do
     sign_in user

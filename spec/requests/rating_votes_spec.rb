@@ -2,8 +2,8 @@
 require "rails_helper"
 
 RSpec.describe "RatingVotes", type: :request do
-  let(:user) { create(:user, :trusted) }
-  let(:article) { create(:article) }
+  let_it_be(:user) { create(:user, :trusted) }
+  let_it_be(:article) { create(:article) }
 
   before do
     sign_in user

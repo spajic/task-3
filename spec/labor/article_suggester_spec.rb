@@ -1,13 +1,15 @@
 require "rails_helper"
 
 RSpec.describe ArticleSuggester do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
-  before do
-    create(:article, user_id: user.id, featured: true)
-    create(:article, user_id: user.id, featured: true)
-    create(:article, user_id: user.id, featured: true)
-    create(:article, user_id: user.id, featured: true)
+  let_it_be(:articles) do
+    [
+      create(:article, user_id: user.id, featured: true),
+      create(:article, user_id: user.id, featured: true),
+      create(:article, user_id: user.id, featured: true),
+      create(:article, user_id: user.id, featured: true),
+    ]
   end
 
   it "returns proper number of articles with post with tags" do

@@ -2,15 +2,15 @@ require "rails_helper"
 
 RSpec.describe "ImageUploads", type: :request do
   describe "POST/image_uploads" do
-    let(:user) { create(:user) }
-    let(:headers) { { "Content-Type": "application/json", Accept: "application/json" } }
-    let(:image) do
+    let_it_be(:user) { create(:user) }
+    let_it_be(:headers) { { "Content-Type": "application/json", Accept: "application/json" } }
+    let_it_be(:image) do
       Rack::Test::UploadedFile.new(
         File.join(Rails.root, "spec", "support", "fixtures", "images", "image1.jpeg"),
         "image/jpeg",
       )
     end
-    let(:bad_image) do
+    let_it_be(:bad_image) do
       Rack::Test::UploadedFile.new(
         File.join(Rails.root, "spec", "support", "fixtures", "images", "bad-image.jpg"),
         "image/jpeg",

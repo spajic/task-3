@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "StoriesShow", type: :request do
-  let(:user)         { create(:user) }
-  let(:article)      { create(:article, user_id: user.id) }
+  let_it_be(:user)         { create(:user) }
+  let_it_be(:article)      { create(:article, user_id: user.id) }
 
   describe "GET /:username/:slug" do
     context "when story is an article" do

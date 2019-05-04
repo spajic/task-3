@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "internal/users", type: :request do
-  let(:mentor) { create(:user) }
-  let(:mentee) { create(:user) }
-  let(:admin)  { create(:user, :super_admin) }
+  let_it_be(:mentor) { create(:user) }
+  let_it_be(:mentee) { create(:user) }
+  let_it_be(:admin)  { create(:user, :super_admin) }
 
   before do
     sign_in(admin)

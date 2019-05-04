@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "StripeCancellations", type: :request do
-  let(:user) { create(:user) }
-  let(:stripe_helper) { StripeMock.create_test_helper }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:stripe_helper) { StripeMock.create_test_helper }
 
   before do
     StripeMock.start

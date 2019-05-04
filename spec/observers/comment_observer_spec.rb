@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe CommentObserver, type: :observer do
-  let(:user) { create(:user) }
-  let(:article) { create(:article) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article) }
 
   before do
     allow(SlackBot).to receive(:ping).and_return(true)
