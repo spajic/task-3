@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe UserSimilarity, vcr: {} do
-  let(:user) { create(:user, summary: "I like ruby and JavaScript and Go") }
-  let(:similar_user) { create(:user, summary: "I like JavaScript and Go") }
-  let(:dissimilar_user) { create(:user, summary: "I like Haskell and functional programming") }
+  let_it_be(:user) { create(:user, summary: "I like ruby and JavaScript and Go") }
+  let_it_be(:similar_user) { create(:user, summary: "I like JavaScript and Go") }
+  let_it_be(:dissimilar_user) { create(:user, summary: "I like Haskell and functional programming") }
 
   it "returns similar user" do
     similar_score = UserSimilarity.new(user, similar_user).score

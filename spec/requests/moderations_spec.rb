@@ -27,9 +27,9 @@ RSpec.shared_examples "an elevated privilege required request" do |path|
 end
 
 RSpec.describe "Moderations", type: :request do
-  let(:user) { create(:user, :trusted) }
-  let(:article) { create(:article) }
-  let(:comment) { create(:comment, commentable: article) }
+  let_it_be(:user) { create(:user, :trusted) }
+  let_it_be(:article) { create(:article) }
+  let_it_be(:comment) { create(:comment, commentable: article) }
 
   it_behaves_like "an elevated privilege required request", "/username/random-article/mod"
   it_behaves_like "an elevated privilege required request", "/username/comment/1/mod"

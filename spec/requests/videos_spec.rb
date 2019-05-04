@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "Videos", type: :request do
-  let(:unauthorized_user) { create(:user) }
-  let(:authorized_user)   { create(:user, :video_permission) }
+  let_it_be(:unauthorized_user) { create(:user) }
+  let_it_be(:authorized_user)   { create(:user, :video_permission) }
 
   describe "GET /videos/new" do
     context "when not authorized" do

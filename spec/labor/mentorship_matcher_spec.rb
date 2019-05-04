@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.describe MentorshipMatcher do
-  let(:user_one) { create(:user) }
-  let(:user_two) { create(:user) }
-  let(:user_three) { create(:user) }
-  let(:user_four) { create(:user) }
-  let(:user_five) { create(:user) }
+  let_it_be(:user_one) { create(:user) }
+  let_it_be(:user_two) { create(:user) }
+  let_it_be(:user_three) { create(:user) }
+  let_it_be(:user_four) { create(:user) }
+  let_it_be(:user_five) { create(:user) }
 
   it "matches the correct pair of users" do
     mentor_ids = [user_one.id, user_two.id, user_three.id]

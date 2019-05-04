@@ -1,7 +1,7 @@
 require "rails_helper"
 # TODO: improve this test
 RSpec.describe Suggester::Users::Sidebar do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   it "does not include calling user" do
     create_list(:user, 3)

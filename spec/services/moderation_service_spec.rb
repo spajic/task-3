@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe ModerationService do
-  let(:mod) { create(:user, :trusted) }
-  let(:article) { create(:user) }
+  let_it_be(:mod) { create(:user, :trusted) }
+  let_it_be(:article) { create(:user) }
 
   describe "#send_moderation_notification" do
     it "sends Notification to a moderator" do

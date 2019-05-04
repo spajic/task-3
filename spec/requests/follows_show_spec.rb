@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Follows #show", type: :request do
-  let(:current_user) { create(:user) }
-  let(:user) { create(:user) }
-  let(:tag) { create(:tag) }
-  let(:organization) { create(:organization) }
+  let_it_be(:current_user) { create(:user) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:tag) { create(:tag) }
+  let_it_be(:organization) { create(:organization) }
 
   before { login_as current_user }
 

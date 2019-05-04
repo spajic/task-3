@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe ReadingList do
-  let(:user) { create(:user) }
-  let(:article) { create(:article) }
-  let(:article2) { create(:article) }
-  let(:article3) { create(:article) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article) }
+  let_it_be(:article2) { create(:article) }
+  let_it_be(:article3) { create(:article) }
 
   def create_reaction(user, article)
     Reaction.create!(

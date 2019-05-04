@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Bufferizer do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user_id: user.id) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
 
   it "sends to buffer twitter" do
     tweet = "test tweet"

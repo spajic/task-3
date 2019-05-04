@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Events", type: :request do
-  let(:event) { create(:event) }
+  let_it_be(:event) { create(:event) }
 
   describe "GET events" do
     it "returns index page" do

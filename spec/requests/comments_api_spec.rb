@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "CommentsApi", type: :request do
-  let(:article) { create(:article) }
+  let_it_be(:article) { create(:article) }
 
   before do
     FactoryBot.create(:comment, commentable_type: "Article", commentable_id: article.id)

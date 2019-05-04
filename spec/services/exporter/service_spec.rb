@@ -2,10 +2,10 @@ require "rails_helper"
 require "zip"
 
 RSpec.describe Exporter::Service do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user: user) }
-  let(:other_user) { create(:user) }
-  let(:other_user_article) { create(:article, user: other_user) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:article) { create(:article, user: user) }
+  let_it_be(:other_user) { create(:user) }
+  let_it_be(:other_user_article) { create(:article, user: other_user) }
 
   before do
     ActionMailer::Base.deliveries.clear

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe FollowChecker do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   it "checks if following a thing and returns true if they are" do
     user2 = create(:user)

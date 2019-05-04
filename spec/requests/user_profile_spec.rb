@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "UserProfiles", type: :request do
-  let(:user) { create(:user) }
-  let(:organization) { create(:organization) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:organization) { create(:organization) }
 
   describe "GET /user" do
     it "renders to appropriate page" do
@@ -31,7 +31,7 @@ RSpec.describe "UserProfiles", type: :request do
     end
 
     context "with profile image" do
-      let(:user) { create(:user, :with_profile_image) }
+      let_it_be(:user) { create(:user, :with_profile_image) }
 
       it "renders organization users on sidebar" do
         user.update(organization_id: organization.id)

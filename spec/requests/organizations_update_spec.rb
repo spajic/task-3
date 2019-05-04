@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "OrganizationsUpdate", type: :request do
-  let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization_id: organization.id) }
-  let(:article) { create(:article, user_id: user.id) }
-  let(:comment) { create(:comment, user_id: user.id, commentable_id: article.id) }
+  let_it_be(:organization) { create(:organization) }
+  let_it_be(:user) { create(:user, organization_id: organization.id) }
+  let_it_be(:article) { create(:article, user_id: user.id) }
+  let_it_be(:comment) { create(:comment, user_id: user.id, commentable_id: article.id) }
 
   before do
     user.org_admin = true

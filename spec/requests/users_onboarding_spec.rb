@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "UsersOnboarding", type: :request do
-  let(:user) { create(:user, saw_onboarding: false) }
+  let_it_be(:user) { create(:user, saw_onboarding: false) }
 
   before do
     login_as user

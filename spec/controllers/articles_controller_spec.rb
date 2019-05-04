@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe ArticlesController, type: :controller do
-  let(:user) { create(:user) }
+  let_it_be(:user) { create(:user) }
 
   describe "GET #feed" do
     render_views

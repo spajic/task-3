@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "all routes", type: :routing do
-  let(:podcast)     { create(:podcast) }
-  let(:user)        { create(:user) }
+  let_it_be(:podcast)     { create(:podcast) }
+  let_it_be(:user)        { create(:user) }
 
   it "renders a podcast index if there is a podcast with the slug successfully" do
     expect(get: "/#{podcast.slug}").to route_to(

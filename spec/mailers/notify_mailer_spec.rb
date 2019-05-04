@@ -2,10 +2,10 @@ require "rails_helper"
 
 RSpec.describe NotifyMailer, type: :mailer do
   describe "notify" do
-    let(:user)      { create(:user) }
-    let(:user2)     { create(:user) }
-    let(:article)   { create(:article, user_id: user.id) }
-    let(:comment)   { create(:comment, user_id: user.id, commentable_id: article.id) }
+    let_it_be(:user)      { create(:user) }
+    let_it_be(:user2)     { create(:user) }
+    let_it_be(:article)   { create(:article, user_id: user.id) }
+    let_it_be(:comment)   { create(:comment, user_id: user.id, commentable_id: article.id) }
 
     describe "#new_reply_email" do
       it "renders proper subject" do

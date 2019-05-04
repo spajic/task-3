@@ -1,13 +1,13 @@
 require "rails_helper"
 
 RSpec.describe LinkTag, type: :liquid_template do
-  let(:user) { create(:user, username: "username45", name: "Chase Danger", profile_image: nil) }
-  let(:article) do
+  let_it_be(:user) { create(:user, username: "username45", name: "Chase Danger", profile_image: nil) }
+  let_it_be(:article) do
     create(:article, user_id: user.id, title: "test this please", tags: "tag1 tag2 tag3")
   end
-  let(:org) { create(:organization) }
-  let(:org_user) { create(:user, organization_id: org.id) }
-  let(:org_article) do
+  let_it_be(:org) { create(:organization) }
+  let_it_be(:org_user) { create(:user, organization_id: org.id) }
+  let_it_be(:org_article) do
     create(:article, user_id: org_user.id, title: "test this please", tags: "tag1 tag2 tag3",
                      organization_id: org.id)
   end

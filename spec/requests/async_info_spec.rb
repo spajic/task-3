@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "AsyncInfo", type: :request do
-  let(:user) { build(:user) }
+  let_it_be(:user) { build(:user) }
 
   describe "GET /async_info/base_data" do
     describe "anonymous user" do

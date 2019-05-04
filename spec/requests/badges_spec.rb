@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "Badges", type: :request do
-  let(:user)   { create(:user) }
-  let(:badge) { create(:badge) }
+  let_it_be(:user) { create(:user) }
+  let_it_be(:badge) { create(:badge) }
 
   describe "GET /badge/:slug" do
     context "when badge exists" do
