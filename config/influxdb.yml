@@ -1,0 +1,12 @@
+development:
+  database: 'dev_to'
+  host: 'localhost'
+  port: 8086
+  username: root
+  password: root
+test:
+  database: 'dev_to'
+  host: 'localhost'
+  port: 8086
+  username: root
+  password: root

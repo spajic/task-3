@@ -52,9 +52,9 @@ variable :AIRBRAKE_PROJECT_ID, :integer, default: 00000
 
 # Algolia for search (not optional)
 only_in_test = proc { ENV['RACK_ENV'] == "test" ? "test-test" : nil}
-variable :ALGOLIASEARCH_API_KEY, :String, default: only_in_test
-variable :ALGOLIASEARCH_APPLICATION_ID, :String, default: only_in_test
-variable :ALGOLIASEARCH_SEARCH_ONLY_KEY, :String, default: only_in_test
+variable :ALGOLIASEARCH_API_KEY, :String, default: '5c7ff235fb6e8f8b735904919e0d8e17'
+variable :ALGOLIASEARCH_APPLICATION_ID, :String, default: 'Q7HQKBY3X3'
+variable :ALGOLIASEARCH_SEARCH_ONLY_KEY, :String, default: 'dc58947baa391de46564823a5f2abe39'
 
 # AWS for images storages
 variable :AWS_ID, :String, default: "Optional"
