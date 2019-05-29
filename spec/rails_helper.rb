@@ -12,6 +12,7 @@ require "pundit/matchers"
 require "pundit/rspec"
 require "webmock/rspec"
 require "test_prof/recipes/rspec/before_all"
+require_relative "test_metrics"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -83,6 +84,16 @@ RSpec.configure do |config|
 
     stub_request(:any, /api.mailchimp.com/).
       to_return(status: 200, body: "", headers: {})
+  end
+
+  config.before(:suite) do
+    FileUtils.touch("#{::Rails.root}/tmp/testsuite_start_file")
+  end
+
+  config.after(:suite) do
+    start_time = File.mtime("#{::Rails.root}/tmp/testsuite_start_file")
+    finished_at = Time.now - start_time
+    TestMetrics.write(run_time_seconds: finished_at)
   end
 
   OmniAuth.config.test_mode = true
